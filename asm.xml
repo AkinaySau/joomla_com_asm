@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="component" version="3.8" method="upgrade">
+    <name>COM_SJPROJECT</name>
+    <creationDate>13.01.2018</creationDate>
+    <author>Sau</author>
+    <authorEmail>your@email.com</authorEmail>
+    <authorUrl>http://your.url.com</authorUrl>
+    <copyright>A copyright</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0</version>
+    <description>COM_SJPROJECT_XML_DESCRIPTION</description>
+
+    <scriptfile>script.php</scriptfile>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install/mysql/mysql.sql</file>
+        </sql>
+    </install>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <media folder="media/com_asm" destination="com_asm">
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+        <folder>src</folder>
+        <folder>vendor</folder>
+        <filename>composer.json</filename>
+    </media>
+
+    <!-- Front-end files -->
+    <files folder="com">
+        <filename>sjsm.php</filename>
+        <filename>controller.php</filename>
+    </files>
+    <languages folder="com/language">
+        <language tag="en-GB">en-GB/en-GB.com_asm.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.com_asm.ini</language>
+    </languages>
+
+    <administration>
+        <files folder="admin">
+            <filename>LICENSE.txt</filename>
+            <folder>sql</folder>
+            <filename>config.xml</filename>
+        </files>
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/en-GB.com_asm.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_asm.sys.ini</language>
+            <language tag="ru-RU">ru-RU/ru-RU.com_asm.ini</language>
+            <language tag="ru-RU">ru-RU/ru-RU.com_asm.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

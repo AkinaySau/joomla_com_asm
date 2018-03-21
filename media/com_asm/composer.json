@@ -1,0 +1,10 @@
+{
+  "name": "sau/com_asm",
+  "license": "MIT",
+  "autoload": {
+    "Sau\\Joomla\\ASM\\": "/src"
+  },
+  "require": {
+    "twig/twig": "2.4.*"
+  }
+}
