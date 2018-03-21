@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="component" version="3.8" method="upgrade">
-    <name>COM_SJPROJECT</name>
-    <creationDate>13.01.2018</creationDate>
+    <name>COM_ASM</name>
+    <creationDate>21.03.2018</creationDate>
     <author>Sau</author>
-    <authorEmail>your@email.com</authorEmail>
-    <authorUrl>http://your.url.com</authorUrl>
-    <copyright>A copyright</copyright>
+    <authorEmail>akinaysau@gmail.com</authorEmail>
+    <authorUrl>http://a-sau.ru</authorUrl>
+    <copyright>AkinaySau</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <version>1.0</version>
-    <description>COM_SJPROJECT_XML_DESCRIPTION</description>
+    <description>COM_ASM_XML_DESCRIPTION</description>
 
-    <scriptfile>script.php</scriptfile>
+    <!--<scriptfile>script.php</scriptfile>-->
 
     <install>
         <sql>
@@ -35,7 +35,7 @@
 
     <!-- Front-end files -->
     <files folder="com">
-        <filename>sjsm.php</filename>
+        <filename>asm.php</filename>
         <filename>controller.php</filename>
     </files>
     <languages folder="com/language">
@@ -44,10 +44,14 @@
     </languages>
 
     <administration>
+        <menu link='index.php?option=com_asm'>COM_ASM</menu>
         <files folder="admin">
             <filename>LICENSE.txt</filename>
             <folder>sql</folder>
             <filename>config.xml</filename>
+            <filename>asm.php</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
         </files>
         <languages folder="admin/language">
             <language tag="en-GB">en-GB/en-GB.com_asm.ini</language>

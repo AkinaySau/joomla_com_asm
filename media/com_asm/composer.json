@@ -1,6 +1,6 @@
 {
   "name": "sau/com_asm",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "autoload": {
     "Sau\\Joomla\\ASM\\": "/src"
   },
