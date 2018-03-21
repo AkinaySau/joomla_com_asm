@@ -46,12 +46,14 @@
     <administration>
         <menu link='index.php?option=com_asm'>COM_ASM</menu>
         <files folder="admin">
-            <filename>LICENSE.txt</filename>
             <folder>sql</folder>
+            <folder>views</folder>
             <filename>config.xml</filename>
+            <filename>access.xml</filename>
             <filename>asm.php</filename>
             <filename>controller.php</filename>
             <filename>index.html</filename>
+            <filename>LICENSE.txt</filename>
         </files>
         <languages folder="admin/language">
             <language tag="en-GB">en-GB/en-GB.com_asm.ini</language>

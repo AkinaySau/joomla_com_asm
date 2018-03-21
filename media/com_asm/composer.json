@@ -2,7 +2,9 @@
   "name": "sau/com_asm",
   "license": "GPL-2.0",
   "autoload": {
-    "Sau\\Joomla\\ASM\\": "/src"
+    "psr-4": {
+      "Sau\\Joomla\\ASM\\": "src"
+    }
   },
   "require": {
     "twig/twig": "2.4.*"

@@ -13,25 +13,29 @@
  */
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\MVC\Controller\AdminController;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\MVC\Controller\BaseController;
 
 defined('_JEXEC') or die('Restricted access');
 try {
-	$input =
-	$controller = AdminController::getInstance('ASM');
+	include_once JPATH_SITE . '/media/com_asm/vendor/autoload.php';
+	if ( !Factory::getUser()
+		->authorise('core.manage', 'com_com') ) {
+		throw new InvalidArgumentException(Text::_('JERROR_ALERTNOAUTHOR'), 404);
+	}
 
-	// Perform the Request task
-	$controller->execute(Factory::getApplication()->input->get('task'));
+	$input = Factory::getApplication()->input;
 
-	// Redirect if set by the controller
+	/**
+	 * @var $controller BaseController;
+	 */
+	$controller = BaseController::getInstance('ASM');
+
+	$controller->execute($input->get('task'));
+
 	$controller->redirect();
 } catch ( Exception $e ) {
 
-	echo '<pre>';
-	echo '<strong>Message:</strong> ', $e->getMessage(), PHP_EOL;
-	echo '<strong>Line:</strong> ', $e->getLine(), PHP_EOL;
-	echo '<strong>File:</strong> ', $e->getFile(), PHP_EOL;
-	echo '<strong>File:</strong> ', PHP_EOL, implode(PHP_EOL, $e->getTrace()), PHP_EOL;
-	echo '</pre>';
+	\Sau\Joomla\ASM\Helper::renderException($e);
 
 }
