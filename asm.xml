@@ -46,7 +46,10 @@
     <administration>
         <menu link='index.php?option=com_asm'>COM_ASM</menu>
         <files folder="admin">
+            <folder>controllers</folder>
+            <folder>models</folder>
             <folder>sql</folder>
+            <folder>tables</folder>
             <folder>views</folder>
             <filename>config.xml</filename>
             <filename>access.xml</filename>
