@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <field name="id"
+           type="hidden"
+           label="JGLOBAL_FIELD_ID_LABEL"
+           description="JGLOBAL_FIELD_ID_DESC"
+           default="0"
+           class="readonly"
+           readonly="true"
+    />
+    <field name="title"
+           type="text"
+           label="COM_ASM_FORM_LABEL_TITLE"
+           description="COM_ASM_FORM_DESCRIPTION_TITLE"
+           class="span12"
+           required="required"
+    />
+    <field name="excerpt"
+           type="textarea"
+           label="COM_ASM_FORM_LABEL_EXCERPT"
+           description="COM_ASM_FORM_DESCRIPTION_EXCERPT"
+           class="span12"
+    />
+    <field name="content"
+           type="editor"
+           filter="raw"
+           label="COM_ASM_FORM_LABEL_CONTENT"
+           description="COM_ASM_FORM_DESCRIPTION_CONTENT"
+    />
+    <fields name="dates" label="COM_ASM_FIELD_BASIC_LABEL">
+        <field name="created"
+               type=""
+               label="COM_ASM_FORM_LABEL_CREATED"
+               description="COM_ASM_FORM_DESCRIPTION_CREATED"
+        />
+        <field name="modified"
+               type=""
+               label="COM_ASM_FORM_LABEL_MODIFIED"
+               description="COM_ASM_FORM_DESCRIPTION_MODIFIED"
+        />
+    </fields>
+    <fields name="params" label="COM_ASM_FIELD_BASIC_LABEL">
+        <fieldset name="basic">
+
+        </fieldset>
+    </fields>
+</form>
