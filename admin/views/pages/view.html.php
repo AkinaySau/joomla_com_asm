@@ -9,10 +9,10 @@
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Pagination\Pagination;
-use Sau\Joomla\ASM\Abs\SAdminHtmlView;
-use Sau\Joomla\ASM\Helper;
+use Sau\Joomla\ASM\Admin\AdminHtmlView;
+use Sau\Joomla\ASM\Admin\Helpers\ExceptionHelper;
 
-class ASMViewPages extends SAdminHtmlView {
+class ASMViewPages extends AdminHtmlView {
 	/**
 	 * @var array
 	 *
@@ -33,14 +33,14 @@ class ASMViewPages extends SAdminHtmlView {
 	 * @return mixed|void
 	 * @since 1.0
 	 */
-	public function display ( $tpl = null ) {
+	public function display( $tpl = null ) {
 		try {
-			$this->items      = $this->get('Items');
-			$this->pagination = $this->get('Pagination');
+			$this->items      = $this->get( 'Items' );
+			$this->pagination = $this->get( 'Pagination' );
 
-			parent::display($tpl);
+			parent::display( $tpl );
 		} catch ( Exception $e ) {
-			Helper::renderException($e);
+			ExceptionHelper::renderException( $e );
 		}
 	}
 
@@ -51,11 +51,12 @@ class ASMViewPages extends SAdminHtmlView {
 	 *
 	 * @since   1.0
 	 */
-	protected function toolbar () {
-		JToolBarHelper::addNew('page.add');
-		JToolBarHelper::editList('page.edit');
+	protected function toolbar() {
+		JToolBarHelper::addNew( 'page.add' );
+		JToolBarHelper::editList( 'page.edit' );
+		JToolbarHelper::save2copy();
 		JToolBarHelper::divider();
-		JToolBarHelper::deleteList('', 'pages.delete');
+		JToolBarHelper::deleteList( '', 'pages.delete' );
 	}
 
 	/**
@@ -65,7 +66,7 @@ class ASMViewPages extends SAdminHtmlView {
 	 *
 	 * @since version
 	 */
-	protected function setTitle (): string {
-		return Text::_('COM_ASM_PAGES');
+	protected function setTitle(): string {
+		return Text::_( 'COM_ASM_PAGES' );
 	}
 }

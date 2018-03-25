@@ -15,54 +15,58 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Sau\Joomla\ASM\UrlHelper;
 
-defined('_JEXEC') or die;
+defined( '_JEXEC' ) or die;
 ?>
 <div id="j-sidebar-container" class="span2">
 	<?php echo $this->sidebar; ?>
 </div>
 <div id="j-main-container" class="span10">
-	<form action="<?php echo Route::_(UrlHelper::buildLink([ 'option' => 'com_asm' ])); ?>" method="post" name="adminForm" id="adminForm">
-		<table>
-			<thead>
-			<tr>
-				<th width="1%">
-					<?php echo JHtmlGrid::checkall(); ?>
-				</th>
-				<th>
-					<?php echo Text::_('COM_ASM_TITLE'); ?>
-				</th>
-				<th>
-					<?php echo Text::_('COM_ASM_DATE_CREATE'); ?>
-				</th>
-				<th>
-					<?php echo Text::_('COM_ASM_DATE_UPDATE'); ?>
-				</th>
-				<th width="1%">
-					<?php echo Text::_('COM_ASM_ID'); ?>
-				</th>
-			</tr>
-			</thead>
-			<tbody>
-			<?php foreach ( $this->items as $i => $item ) : ?>
+	<form action="<?php echo Route::_( UrlHelper::buildLink( [ 'option' => 'com_asm' ] ) ); ?>" method="post" name="adminForm" id="adminForm">
+		<table width="100%">
+			<?php if ( $this->items ): ?>
+				<thead>
 				<tr>
-					<td>
-						<?php echo JHtmlGrid::id($i, $item->id); ?>
-					</td>
-					<td>
-						<?php echo $item->title; ?>
-					</td>
-					<td>
-						<?php echo $item->created; ?>
-					</td>
-					<td>
-						<?php echo $item->updates; ?>
-					</td>
-					<td>
-						<?php echo $item->id; ?>
-					</td>
+					<th width="1%">
+						<?php echo JHtmlGrid::checkall(); ?>
+					</th>
+					<th>
+						<?php echo Text::_( 'COM_ASM_TITLE' ); ?>
+					</th>
+					<th>
+						<?php echo Text::_( 'COM_ASM_DATE_CREATE' ); ?>
+					</th>
+					<th>
+						<?php echo Text::_( 'COM_ASM_DATE_UPDATE' ); ?>
+					</th>
+					<th width="1%">
+						<?php echo Text::_( 'COM_ASM_ID' ); ?>
+					</th>
 				</tr>
-			<?php endforeach; ?>
-			</tbody>
+				</thead>
+				<tbody>
+				<?php foreach ( $this->items as $i => $item ) : ?>
+					<tr>
+						<td>
+							<?php echo JHtmlGrid::id( $i, $item->id ); ?>
+						</td>
+						<td>
+							<?php echo $item->title; ?>
+						</td>
+						<td>
+							<?php echo $item->created; ?>
+						</td>
+						<td>
+							<?php echo $item->updates; ?>
+						</td>
+						<td>
+							<?php echo $item->id; ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			<?php else: ?>
+			<h3><?php echo Text::_('COM_ASM_NOT_FOUND'); ?></h3>
+			<?php endif; ?>
 			<tfoot>
 			<tr>
 				<td colspan="4"><?php echo $this->pagination->getListFooter(); ?></td>
@@ -78,5 +82,6 @@ defined('_JEXEC') or die;
 		<input type="hidden" name="boxchecked" value="0" />
 		<?php echo JHtmlForm::token(); ?>
 	</form>
+
 </div>
 
