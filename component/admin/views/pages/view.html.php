@@ -10,7 +10,7 @@
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Pagination\Pagination;
 use Sau\Joomla\ASM\Admin\AdminHtmlView;
-use Sau\Joomla\ASM\Admin\Helpers\ExceptionHelper;
+use Sau\Joomla\ASM\Exceptions\ExceptionHelper;
 
 class ASMViewPages extends AdminHtmlView {
 	/**

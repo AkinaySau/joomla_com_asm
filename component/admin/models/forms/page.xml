@@ -41,25 +41,18 @@
         />
     </fieldset>
     <fields name="params" label="COM_ASM_FIELD_BASIC_LABEL">
-        <fieldset name="base">
-            <field
-                    name="article_layout"
-                    type="componentlayout"
-                    label="JGLOBAL_FIELD_LAYOUT_LABEL"
-                    description="JGLOBAL_FIELD_LAYOUT_DESC"
-                    menuitems="true"
-                    extension="com_content"
-                    view="article"
-            />
+        <fieldset name="base" addfieldpath="/administrator/components/com_asm/models/fields">
             <field name="layout"
-                   extension="com_asm"
+                   type="asmlayout"
                    view="page"
-                   useglobal="true"
-                   type="componentlayout"
                    label="COM_ASM_FORM_LABEL_LAYOUT"
                    description="COM_ASM_FORM_DESCRIPTION_LAYOUT"
                    class="span12"
-            />
+            >
+                <option value="str0">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
+                <option value="str1">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
+                <option value="str2">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
+            </field>
         </fieldset>
         <fieldset name="extend">
 

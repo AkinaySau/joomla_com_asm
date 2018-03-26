@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field name="example_text" type="text" label="Example Text" />
+    <field name="example_textarea" type="textarea" label="Example Textarea" cols="40" rows="8" />
+</form>
