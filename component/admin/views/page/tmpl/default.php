@@ -11,12 +11,14 @@
 
 
 use Sau\Joomla\ASM\Admin\Helpers\AdminViewHelper;
+use Sau\Joomla\ASM\Exceptions\ExceptionHelper;
 
-
-?>
-<?php AdminViewHelper::startForm( [
-	'action' => AdminViewHelper::link( 'page', '', [ 'id' => $this->item->id ] )
-] ) ?>
+try {
+	?>
+	<?php AdminViewHelper::startForm( [
+		'action' => AdminViewHelper::link( 'page', '', [ 'id' => $this->item->id ] )
+	] ) ?>
+	<!--	<div class="span8" id="j-main-container">-->
 	<div class="span8">
 		<?php echo $this->form->renderField( 'id' ) ?>
 		<div class="">
@@ -26,13 +28,15 @@ use Sau\Joomla\ASM\Admin\Helpers\AdminViewHelper;
 		<?php echo $this->form->renderField( 'excerpt' ) ?>
 		<?php echo $this->form->renderField( 'content' ) ?>
 	</div>
+	<!--	<div class="span4" id="j-sidebar-container">-->
 	<div class="span4">
-		<?php echo $this->form->renderFieldset( 'sidebar' ) ?>
-		<?php echo $this->form->renderFieldset( 'base' ) ?>
-		<?php
-		echo '<pre>';
-		print_r( $this->form->getFieldsets() );
-		echo '</pre>';
-		?>
+		<?php echo $this->loadTemplate( 'sidebar' ); ?>
 	</div>
-<?php AdminViewHelper::endForm( false ) ?>
+	<div class="span 12">
+		<?php (new JFormFieldSubform())-> ?>
+	</div>
+	<?php AdminViewHelper::endForm( false ) ?>
+	<?php
+} catch ( Exception $exception ) {
+	ExceptionHelper::renderException( $exception );
+}

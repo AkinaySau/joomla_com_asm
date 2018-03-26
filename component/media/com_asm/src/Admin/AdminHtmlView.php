@@ -9,6 +9,8 @@
 
 namespace Sau\Joomla\ASM\Admin;
 
+use JHtmlBehavior;
+use JHtmlFormbehavior;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
 use JToolbarHelper;
@@ -40,6 +42,8 @@ abstract class AdminHtmlView extends HtmlView {
 	 * @since   1.0
 	 */
 	public function display( $tpl = null ) {
+		$this->beafo();
+
 		$this->title   = $this->setTitle();
 		$this->sidebar = AdminViewHelper::sidebar( 'pages' );
 		$this->toolbar();
@@ -79,4 +83,10 @@ abstract class AdminHtmlView extends HtmlView {
 	 * @since version
 	 */
 	abstract protected function setTitle(): string;
+
+	private function beafo() {
+		JHtmlBehavior::tooltip();
+		JHtmlBehavior::multiselect();
+		JHtmlFormbehavior::chosen( 'select' );
+	}
 }
