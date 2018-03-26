@@ -34,25 +34,35 @@
            description="COM_ASM_FORM_DESCRIPTION_CONTENT"
     />
     <fieldset name="sidebar" label="COM_ASM_FIELD_BASIC_LABEL">
+        <field
+                name="published"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                default="1"
+                class="chzn-color-state"
+                size="1"
+        >
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
         <field name="date_published"
                type="calendar"
                label="COM_ASM_FORM_LABEL_DATE_PUBLISHED"
                description="COM_ASM_FORM_DESCRIPTION_DATE_PUBLISHED"
         />
+        <field name="layout"
+               type="asmlayout"
+               view="page"
+               label="COM_ASM_FORM_LABEL_LAYOUT"
+               description="COM_ASM_FORM_DESCRIPTION_LAYOUT"
+               class="span12"
+        />
     </fieldset>
     <fields name="params" label="COM_ASM_FIELD_BASIC_LABEL">
         <fieldset name="base" addfieldpath="/administrator/components/com_asm/models/fields">
-            <field name="layout"
-                   type="asmlayout"
-                   view="page"
-                   label="COM_ASM_FORM_LABEL_LAYOUT"
-                   description="COM_ASM_FORM_DESCRIPTION_LAYOUT"
-                   class="span12"
-            >
-                <option value="str0">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
-                <option value="str1">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
-                <option value="str2">COM_ASM_FORM_FIELD_ASMLAYOUT_DEFAULT</option>
-            </field>
         </fieldset>
         <fieldset name="extend">
 
