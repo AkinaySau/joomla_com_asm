@@ -6,15 +6,21 @@
            description="JGLOBAL_FIELD_ID_DESC"
            default="0"
            class="readonly"
-           readonly="true"
     />
-    <field name="title"
-           type="text"
-           label="COM_ASM_FORM_LABEL_TITLE"
-           description="COM_ASM_FORM_DESCRIPTION_TITLE"
-           class="span12"
-           required="required"
-    />
+    <fieldset name="title">
+        <field name="title"
+               type="text"
+               label="COM_ASM_FORM_LABEL_TITLE"
+               description="COM_ASM_FORM_DESCRIPTION_TITLE"
+               class="span12"
+               required="required"
+        />
+        <field name="alias"
+               type="text"
+               label="COM_ASM_FORM_LABEL_ALIAS"
+               description="COM_ASM_FORM_DESCRIPTION_ALIAS"
+        />
+    </fieldset>
     <field name="excerpt"
            type="textarea"
            label="COM_ASM_FORM_LABEL_EXCERPT"
@@ -27,20 +33,35 @@
            label="COM_ASM_FORM_LABEL_CONTENT"
            description="COM_ASM_FORM_DESCRIPTION_CONTENT"
     />
-    <fields name="dates" label="COM_ASM_FIELD_BASIC_LABEL">
-        <field name="created"
-               type=""
-               label="COM_ASM_FORM_LABEL_CREATED"
-               description="COM_ASM_FORM_DESCRIPTION_CREATED"
+    <fieldset name="sidebar" label="COM_ASM_FIELD_BASIC_LABEL">
+        <field name="date_published"
+               type="calendar"
+               label="COM_ASM_FORM_LABEL_DATE_PUBLISHED"
+               description="COM_ASM_FORM_DESCRIPTION_DATE_PUBLISHED"
         />
-        <field name="modified"
-               type=""
-               label="COM_ASM_FORM_LABEL_MODIFIED"
-               description="COM_ASM_FORM_DESCRIPTION_MODIFIED"
-        />
-    </fields>
+    </fieldset>
     <fields name="params" label="COM_ASM_FIELD_BASIC_LABEL">
-        <fieldset name="basic">
+        <fieldset name="base">
+            <field
+                    name="article_layout"
+                    type="componentlayout"
+                    label="JGLOBAL_FIELD_LAYOUT_LABEL"
+                    description="JGLOBAL_FIELD_LAYOUT_DESC"
+                    menuitems="true"
+                    extension="com_content"
+                    view="article"
+            />
+            <field name="layout"
+                   extension="com_asm"
+                   view="page"
+                   useglobal="true"
+                   type="componentlayout"
+                   label="COM_ASM_FORM_LABEL_LAYOUT"
+                   description="COM_ASM_FORM_DESCRIPTION_LAYOUT"
+                   class="span12"
+            />
+        </fieldset>
+        <fieldset name="extend">
 
         </fieldset>
     </fields>

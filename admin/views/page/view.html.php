@@ -1,6 +1,8 @@
 <?php
 
-use Sau\Joomla\ASM\Abs\SAdminHtmlView;
+use Joomla\CMS\Form\Form;
+use Joomla\CMS\Language\Text;
+use Sau\Joomla\ASM\Admin\AdminHtmlView;
 
 /**
  * Created by PhpStorm.
@@ -9,7 +11,28 @@ use Sau\Joomla\ASM\Abs\SAdminHtmlView;
  * Time: 12:49
  * @since 1.0
  */
-class ASMViewPage extends SAdminHtmlView {
+class ASMViewPage extends AdminHtmlView {
+
+	/**
+	 * Запись
+	 * @var object
+	 * @since 1.0
+	 */
+	protected $item;
+
+	/**
+	 * Форма
+	 * @var Form
+	 * @since 1.0
+	 */
+	protected $form;
+
+	public function display( $tpl = null ) {
+		$this->item = $this->get( 'Item' );
+		$this->form = $this->get( 'Form' );
+
+		return parent::display( $tpl );
+	}
 
 	/**
 	 * Displays a toolbar for a specific page.
@@ -18,8 +41,11 @@ class ASMViewPage extends SAdminHtmlView {
 	 *
 	 * @since   1.0
 	 */
-	protected function toolbar () {
-		// TODO: Implement toolbar() method.
+	protected function toolbar() {
+		JToolbarHelper::apply( 'page.apply' );
+		JToolbarHelper::save( 'page.save' );
+		JToolbarHelper::save2new( 'page.save2new' );
+		JToolbarHelper::cancel( 'page.cancel' );
 	}
 
 	/**
@@ -29,7 +55,7 @@ class ASMViewPage extends SAdminHtmlView {
 	 *
 	 * @since version
 	 */
-	protected function setTitle (): string {
-		// TODO: Implement setTitle() method.
+	protected function setTitle(): string {
+		return Text::_( 'COM_ASM_PAGE' );
 	}
 }

@@ -14,7 +14,7 @@ class ASMModelPages extends ListModel {
 	protected function getListQuery () {
 		$db    = $this->_db;
 		$query = $db->getQuery(true);
-		$query->select($db->quoteName([ 'id', 'title', 'created', 'modified' ]))
+		$query->select($db->quoteName([ 'id', 'title', 'date_create', 'last_modified' ]))
 			->from('#__asm_pages');
 
 		return $query;

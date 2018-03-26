@@ -10,7 +10,7 @@ use \Joomla\CMS\MVC\Controller\AdminController;
 
 class ASMControllerPages extends AdminController {
 
-	public function getModel ( $name = 'Pages', $prefix = 'ASMModel', $config = array() ) {
+	public function getModel ( $name = 'Page', $prefix = 'ASMModel', $config = array() ) {
 		return parent::getModel($name, $prefix, $config);
 	}
 

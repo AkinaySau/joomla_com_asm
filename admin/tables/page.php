@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
  *
  * @since       1.0
  */
-class TablePages extends Table {
+class TablePage extends Table {
 	/**
 	 * Constructor
 	 *
