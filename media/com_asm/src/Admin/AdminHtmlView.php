@@ -7,14 +7,15 @@
  * @license     A "Slug" license name e.g. GPL2
  */
 
-namespace Sau\Joomla\ASM\Abs;
+namespace Sau\Joomla\ASM\Admin;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView;
 use JToolbarHelper;
-use Sau\Joomla\ASM\SAdminViewHelper;
+use Sau\Joomla\ASM\Admin\Helpers\AdminViewHelper;
+use Sau\Joomla\ASM\Component;
 
-abstract class SAdminHtmlView extends HtmlView {
+abstract class AdminHtmlView extends HtmlView {
 	/**
 	 * @var string
 	 * @since version
@@ -38,13 +39,13 @@ abstract class SAdminHtmlView extends HtmlView {
 	 * @see     fetch()
 	 * @since   1.0
 	 */
-	public function display ( $tpl = null ) {
-		$this->title = $this->setTitle();
-		$this->sidebar = SAdminViewHelper::sidebar('pages');
+	public function display( $tpl = null ) {
+		$this->title   = $this->setTitle();
+		$this->sidebar = AdminViewHelper::sidebar( 'pages' );
 		$this->toolbar();
 		$this->baseToolbar();
 
-		return parent::display($tpl);
+		return parent::display( $tpl );
 	}
 
 	/**
@@ -54,19 +55,20 @@ abstract class SAdminHtmlView extends HtmlView {
 	 *
 	 * @since   1.0
 	 */
-	abstract protected function toolbar ();
+	abstract protected function toolbar();
 
 	/**
 	 * Base tool items
 	 *
 	 * @since 1.0
 	 */
-	final private function baseToolbar () {
-		JToolbarHelper::title($this->title);
+	final private function baseToolbar() {
+		JToolbarHelper::title( $this->title );
 		if ( Factory::getUser()
-			->authorise('core.admin', 'com_asm') ) {
-			JToolBarHelper::preferences('com_asm');
+		            ->authorise( 'core.admin', 'com_asm' ) ) {
+			JToolBarHelper::preferences( 'com_asm' );
 		}
+		JToolbarHelper::help( Component::NAME . '_help', false, Component::HelpURL );
 	}
 
 	/**
@@ -76,5 +78,5 @@ abstract class SAdminHtmlView extends HtmlView {
 	 *
 	 * @since version
 	 */
-	abstract protected function setTitle (): string;
+	abstract protected function setTitle(): string;
 }
