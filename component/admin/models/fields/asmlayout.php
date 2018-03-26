@@ -49,22 +49,15 @@ class JFormFieldASMLayout extends AbsFormField {
 				'class' => ClassFieldForm::INPUTBOX,
 			] );
 
-			$label = [];
-			if ( ! empty( $this->description ) ) {
-				JHtmlBootstrap::tooltip();
-				$label [ 'title' ] = Text::_( $this->description );
-			}
-			$label = Attribute::inString( $label );
-
-			echo '<label ', $label, '>', $this->getLabel();
-			echo JHtmlSelect::genericlist( $this->getOptions(), $this->name, $attr, 'value', 'text', $this->value );
-			echo '</label>';
+			return JHtmlSelect::genericlist( $this->getOptions(), $this->name, $attr, 'value', 'text', $this->value );
 
 		} catch ( Exception $fieldSauException ) {
 			ExceptionHelper::renderException( $fieldSauException );
-		}
 
+			return '';
+		}
 	}
+
 
 	/**
 	 * @return array
