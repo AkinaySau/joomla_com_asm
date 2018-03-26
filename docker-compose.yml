@@ -1,0 +1,32 @@
+version: '3.5'
+services:
+  joomladb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somejm
+      MYSQL_DATABASE: jm
+      MYSQL_USER: jm
+      MYSQL_PASSWORD: jm
+
+  joomla:
+    depends_on:
+      - joomladb
+    image: joomla
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      JOOMLA_DB_HOST: joomladb:3306
+      JOOMLA_DB_USER: jm
+      JOOMLA_DB_PASSWORD: jm
+      JOOMLA_DB_NAME: jm
+    volumes:
+       - ./site:/var/www/html/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+
