@@ -15,16 +15,16 @@
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
-use Sau\Joomla\ASM\Helper;
+use Sau\Joomla\ASM\Exceptions\ExceptionHelper;
 
-defined('_JEXEC') or die('Restricted access');
+defined( '_JEXEC' ) or die( 'Restricted access' );
 
 include_once JPATH_SITE . '/media/com_asm/vendor/autoload.php';
 
 try {
-	if ( !Factory::getUser()
-		->authorise('core.manage', 'com_com') ) {
-		throw new InvalidArgumentException(Text::_('JERROR_ALERTNOAUTHOR'), 404);
+	if ( ! Factory::getUser()
+	              ->authorise( 'core.manage', 'com_com' ) ) {
+		throw new InvalidArgumentException( Text::_( 'JERROR_ALERTNOAUTHOR' ), 404 );
 	}
 
 	$input = Factory::getApplication()->input;
@@ -32,11 +32,11 @@ try {
 	/**
 	 * @var $controller BaseController;
 	 */
-	$controller = BaseController::getInstance('ASM');
+	$controller = BaseController::getInstance( 'ASM' );
 
-	$controller->execute($input->getCmd('task', 'display'));
+	$controller->execute( $input->getCmd( 'task', 'display' ) );
 
 	$controller->redirect();
 } catch ( Exception $e ) {
-	Helper::renderException($e);
+	ExceptionHelper::renderException( $e );
 }

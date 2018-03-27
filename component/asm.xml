@@ -35,6 +35,8 @@
 
     <!-- Front-end files -->
     <files folder="com">
+        <folder>models</folder>
+        <folder>views</folder>
         <filename>asm.php</filename>
         <filename>controller.php</filename>
     </files>
